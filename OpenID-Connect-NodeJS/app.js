@@ -131,7 +131,7 @@ app.get('/user/create', function (req, res) {
 app.post('/user/create', oidc.use({policies: {loggedIn: false}, models: 'user'}), function (req, res) {
     delete req.session.error;
     // Regex that match the following date pattern :
-    const dateRegex = /^(\d{4})[-](0[1-9]|1[0-2])[-](0[1-9]|2[0-9]|3[0-1])$/;
+    const dateRegex = /^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
 
     captchaHelper.getCpatchaValidationResponse(req, function (err, result) {
         if (err || !result.success) {
